@@ -1,11 +1,16 @@
 import {Component} from 'react'
+import Header from '../Header'
 
 class MoviesHomePage extends Component {
   render() {
     return (
-      <div>
-        <p>Hollow World</p>
-      </div>
+      <>
+        <Header />
+        <div>
+          <p>Hollow World</p>
+        </div>
+        <h1>Trending Now</h1>
+      </>
     )
   }
 }

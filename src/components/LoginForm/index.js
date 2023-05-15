@@ -89,6 +89,7 @@ class LoginForm extends Component {
 
   render() {
     const {showSubmitError, errorMsg} = this.state
+
     const jwtToken = Cookies.get('jwt_token')
     if (jwtToken !== undefined) {
       return <Redirect to="/" />
@@ -96,12 +97,10 @@ class LoginForm extends Component {
 
     return (
       <div className="login-form-container">
+        <h1>MOVIES</h1>
+
         <form className="form-container" onSubmit={this.submitForm}>
-          <img
-            src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-            className="jobby-logo"
-            alt="website logo"
-          />
+          <p className="login-heading">Login</p>
           <div className="input-container">{this.renderUsernameField()}</div>
           <div className="input-container">{this.renderPasswordField()}</div>
           <button type="submit" className="login-button">
