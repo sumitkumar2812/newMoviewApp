@@ -97,8 +97,11 @@ class LoginForm extends Component {
 
     return (
       <div className="login-form-container">
-        <h1>MOVIES</h1>
-
+        <img
+          className="login-page-heading"
+          alt="login website logo"
+          src="https://res.cloudinary.com/dzbfzovvx/image/upload/v1684300232/Group_7399_kkgyqw.png"
+        />
         <form className="form-container" onSubmit={this.submitForm}>
           <p className="login-heading">Login</p>
           <div className="input-container">{this.renderUsernameField()}</div>

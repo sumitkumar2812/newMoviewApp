@@ -1,35 +1,8 @@
 .nav-header {
-  position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
-
-  background: #131313;
-  opacity: 0.2;
-}
-
-.login-heading {
-  position: absolute;
-  width: 78px;
-  height: 40px;
-  left: 681px;
-  top: 356px;
-
-  font-family: 'HK Grotesk';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 40px;
-  /* identical to box height, or 125% */
-
   display: flex;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-
-  /* General/White */
-
-  color: #ffffff;
+  background-color: #202020;
 }
 
 .nav-content {

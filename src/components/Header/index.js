@@ -21,8 +21,8 @@ const Header = props => {
           <Link to="/">
             <img
               className="website-logo"
-              src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
               alt="website logo"
+              src="https://res.cloudinary.com/dzbfzovvx/image/upload/v1684305167/Group_7399_1_c8bipk.png"
             />
           </Link>
 
@@ -33,7 +33,7 @@ const Header = props => {
               </Link>
             </li>
             <li>
-              <Link to="/jobs">
+              <Link to="/Popular">
                 <BsFillBriefcaseFill className="nav-item-mobile-link" />
               </Link>
             </li>
@@ -50,6 +50,13 @@ const Header = props => {
         </div>
 
         <div className="nav-bar-large-container">
+          <Link to="/">
+            <img
+              className="website-logo"
+              alt="website logo"
+              src="https://res.cloudinary.com/dzbfzovvx/image/upload/v1684305167/Group_7399_1_c8bipk.png"
+            />
+          </Link>
           <ul className="nav-menu">
             <li className="nav-menu-item">
               <Link to="/" className="nav-link">
@@ -58,7 +65,7 @@ const Header = props => {
             </li>
 
             <li className="nav-menu-item">
-              <Link to="/popular" className="nav-link">
+              <Link to="/Popular" className="nav-link">
                 Popular
               </Link>
             </li>
