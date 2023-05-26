@@ -87,58 +87,72 @@
 }
 
 .input-label {
-  margin-bottom: 0px;
-  font-family: 'Roboto';
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 16px;
-  color: #999ca0;
+  position: absolute;
+width: 65px;
+height: 16px;
+left: 0px;
+top: 0px;
+
+font-family: 'HK Grotesk';
+font-style: normal;
+font-weight: 700;
+font-size: 12px;
+line-height: 16px;
+/* identical to box height, or 133% */
+
+letter-spacing: 0.01em;
+text-transform: uppercase;
+
+color: #FFFFFF;
 }
 
 .username-input-field {
-  font-size: 14px;
-  height: 40px;
-  border: 1px solid #d7dfe9;
-  background-color: #e2e8f0;
-  color: #64748b;
-  border-radius: 2px;
-  margin-top: 5px;
-  padding: 8px 16px 8px 16px;
+  position: absolute;
+height: 40px;
+left: 0%;
+right: 0%;
+top: 24px;
+
+background: #333333;
+border-radius: 2px;
 }
 
 .password-input-field {
-  font-size: 14px;
-  height: 40px;
-  border: 1px solid #d7dfe9;
-  background-color: #e2e8f0;
-  color: #64748b;
-  border-radius: 2px;
-  margin-top: 5px;
-  padding: 8px 16px 8px 16px;
+  position: absolute;
+height: 40px;
+left: 0%;
+right: 0%;
+top: 24px;
+
+background: #333333;
+border-radius: 2px;
 }
 
 .login-button {
-  font-family: 'Roboto';
-  font-weight: bold;
-  font-size: 14px;
-  color: #ffffff;
-  height: 40px;
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 2px;
-  background-color: #0b69ff;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
+  position: absolute;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+
+background: #E50914;
+border-radius: 8px;
 }
 
 .error-message {
-  align-self: start;
-  font-size: 20px;
-  margin-top: 8px;
-  margin-bottom: 0px;
-  font-family: 'Roboto';
-  font-size: 12px;
-  line-height: 16px;
-  color: #ff0b37;
+ position: absolute;
+width: 205px;
+height: 18px;
+left: 540px;
+top: 592px;
+
+font-family: 'HK Grotesk';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 18px;
+
+/* Light / red / 600 */
+
+color: #DC2626;
 }

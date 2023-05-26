@@ -1,8 +1,5 @@
 import {Link, withRouter} from 'react-router-dom'
-
 import Cookies from 'js-cookie'
-
-import {FiLogOut} from 'react-icons/fi'
 import {AiFillHome} from 'react-icons/ai'
 import {BsFillBriefcaseFill} from 'react-icons/bs'
 import './index.css'
@@ -13,7 +10,6 @@ const Header = props => {
     Cookies.remove('jwt_token')
     history.replace('/login')
   }
-
   return (
     <nav className="nav-header">
       <div className="nav-content">
@@ -36,15 +32,6 @@ const Header = props => {
               <Link to="/Popular">
                 <BsFillBriefcaseFill className="nav-item-mobile-link" />
               </Link>
-            </li>
-            <li>
-              <button
-                type="button"
-                className="nav-mobile-btn"
-                onClick={onClickLogout}
-              >
-                <FiLogOut />
-              </button>
             </li>
           </ul>
         </div>

@@ -1,4 +1,6 @@
+import Footer from '../Footer'
 import Header from '../Header'
+import './index.css'
 
 const MoviesHomePage = () => (
   <>
@@ -6,6 +8,7 @@ const MoviesHomePage = () => (
     <div>
       <h1>Trending Now</h1>
     </div>
+    <Footer />
   </>
 )
 
