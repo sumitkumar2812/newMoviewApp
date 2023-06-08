@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
 import Footer from '../Footer'
-
+import Header from '../Header'
 import './index.css'
 
 const AccountRoute = props => {
@@ -12,6 +12,7 @@ const AccountRoute = props => {
 
   return (
     <div>
+      <Header />
       <h1>Account</h1>
       <hr />
       <div>

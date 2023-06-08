@@ -103,7 +103,9 @@ class LoginForm extends Component {
           src="https://res.cloudinary.com/dzbfzovvx/image/upload/v1684300232/Group_7399_kkgyqw.png"
         />
         <form className="form-container" onSubmit={this.submitForm}>
-          <p className="login-heading">Login</p>
+          <div className="login-heading-position">
+            <p className="login-heading">Login</p>
+          </div>
           <div className="input-container">{this.renderUsernameField()}</div>
           <div className="input-container">{this.renderPasswordField()}</div>
           <button type="submit" className="login-button">

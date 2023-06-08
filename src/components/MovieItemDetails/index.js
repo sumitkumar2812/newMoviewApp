@@ -2,7 +2,7 @@ import {Component} from 'react'
 import Footer from '../Footer'
 import Header from '../Header'
 
-class Popular extends Component {
+class MovieItemDetails extends Component {
   render() {
     return (
       <>
@@ -13,4 +13,4 @@ class Popular extends Component {
   }
 }
 
-export default Popular
+export default MovieItemDetails

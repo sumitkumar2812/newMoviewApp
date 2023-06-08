@@ -1,0 +1,11 @@
+.background_image {
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 55.38%;
+
+  background: url(https://res.cloudinary.com/dzbfzovvx/image/upload/v1685456036/Image_jraydm.png);
+  background-size: cover;
+  height: 85vh;
+  width: 100%;
+}

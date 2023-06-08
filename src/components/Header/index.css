@@ -2,13 +2,128 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #202020;
+  background-color: transparent;
+  opacity: 1;
+}
+.website-logo {
+  left: 11.46%;
+  right: 79.17%;
+  top: 31.07%;
+  bottom: 31.07%;
+  padding-top: 15px;
+}
+.profile-image {
+  left: 85.21%;
+  right: 11.46%;
+  top: 27.18%;
+  bottom: 26.21%;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.searchIcon {
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  margin-right: 20px;
+  color: #ffffff;
+  margin-top: 15px;
+}
+
+.main-heading {
+  left: 11.39%;
+  right: 66.94%;
+  top: 16.45%;
+  bottom: 78.98%;
+
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 62px;
+  /* identical to box height, or 97% */
+
+  /* General/White */
+
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.main-para {
+  left: 11.39%;
+  right: 57.85%;
+  top: 22.79%;
+  bottom: 71.46%;
+
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 26px;
+
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.movies-list {
+  list-style-type: none;
+}
+
+.main-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+  gap: 8px;
+
+  width: 74px;
+  height: 40px;
+  margin-left: 20px;
+
+  background: #ffffff;
+  border-radius: 4px;
+  border-width: 0;
+  /* Inside auto layout */
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.home-background {
+  background-color: black;
+}
+
+.trending-heading {
+  left: 11.46%;
+  right: 78.26%;
+  top: 48.16%;
+  bottom: 49.56%;
+
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 31px;
+  margin-left: 20px;
+
+  /* General/White */
+
+  color: #ffffff;
+}
+
+.searchButton_and_profile {
+  display: flex;
+  flex-direction: row;
 }
 
 .nav-content {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 90%;
   max-width: 1110px;
   padding: 15px 0px 25px 0px;
@@ -16,19 +131,18 @@
 
 .nav-bar-mobile-logo-container {
   display: flex;
-  justify-content: space-between;
   width: 100%;
 }
 
 @media screen and (min-width: 768px) {
-  .nav-bar-mobile-logo-container {
+  .nav-bar-mobile-container {
     display: none;
   }
 }
 
 .nav-bar-large-container {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: space-between;
   width: 100%;
   max-width: 1110px;
@@ -40,43 +154,33 @@
   }
 }
 
-.website-logo {
-  width: 90px;
-  margin-top: 12px;
-}
-
-@media screen and (min-width: 768px) {
-  .website-logo {
-    width: 125px;
-  }
-}
-
 .nav-menu {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
-  align-self: flex-end;
   list-style-type: none;
-  margin-top: 0px;
-  margin-bottom: 0px;
 }
 
-@media screen and (max-width: 767px) {
-  .nav-menu {
-    display: none;
-  }
-  .nav-content {
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
+.nav-content {
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .nav-menu-item {
-  font-family: 'Roboto';
-  text-decoration: none;
-  margin: 10px;
-  font-weight: 400;
+  left: 24.17%;
+  right: 72.92%;
+  top: 36.89%;
+  bottom: 37.86%;
+
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 700;
   font-size: 16px;
+  line-height: 26px;
+  /* identical to box height, or 162% */
+
+  letter-spacing: -0.355556px;
+  padding: 10px;
+  color: #ffffff;
 }
 
 .nav-link {
@@ -86,50 +190,14 @@
   color: #ffffff;
 }
 
-.logout-desktop-btn {
-  font-family: 'Roboto';
-  font-weight: 600;
-  font-size: 14px;
-  color: #ffffff;
-  background-color: #4f46e5;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  outline: none;
-  padding: 12px 42px;
-}
-
-@media screen and (max-width: 767px) {
-  .logout-desktop-btn {
-    display: none;
-  }
-}
 .nav-bar-mobile-icons-container {
   display: flex;
   align-items: center;
   list-style-type: none;
 }
 
-.nav-mobile-btn {
-  border: none;
-  padding: 0px;
-  background: transparent;
-  cursor: pointer;
-  outline: none;
-  font-size: 24px;
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .nav-item-mobile-link {
   font-size: 24px;
   color: #ffffff;
   margin-right: 20px;
-}
-
-@media screen and (min-width: 768px) {
-  .nav-mobile-btn {
-    display: none;
-  }
 }
