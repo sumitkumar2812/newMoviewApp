@@ -48,14 +48,23 @@ const Header = () => (
           </div>
         </div>
         <div className="nav-bar-mobile-container">
-          <Link to="/">
-            <img
-              className="website-logo"
-              src="https://res.cloudinary.com/dzbfzovvx/image/upload/v1684305167/Group_7399_1_c8bipk.png"
-              alt="website logo"
-            />
-          </Link>
-          <FaBars />
+          <div>
+            <Link to="/">
+              <img
+                className="website-logo"
+                src="https://res.cloudinary.com/dzbfzovvx/image/upload/v1684305167/Group_7399_1_c8bipk.png"
+                alt="website logo"
+              />
+            </Link>
+          </div>
+          <ul className="nav-menu">
+            <li>
+              <HiOutlineSearch className="mobile-search-icon" />
+            </li>
+            <li className="fa-bars">
+              <FaBars />
+            </li>
+          </ul>
         </div>
       </div>
     </nav>

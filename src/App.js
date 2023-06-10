@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import {Route, Switch, Redirect} from 'react-router-dom'
 import LoginForm from './components/LoginForm'
-import MoviesHome from './components/Home'
+import MoviesHome from './components/MoviesHome'
 import PageNotFound from './components/PageNotFound'
 import Popular from './components/Popular'
 import ProtectedRoute from './components/ProtectedRoute'

@@ -33,6 +33,23 @@
   color: #ffffff;
   margin-top: 15px;
 }
+.mobile-search-icon {
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+
+  color: #ffffff;
+  margin: 15px;
+}
+
+.fa-bars {
+  left: 84.44%;
+  right: 8.89%;
+  top: 3.32%;
+  bottom: 93.61%;
+  margin: 15px;
+}
 
 .main-heading {
   left: 11.39%;
@@ -129,8 +146,10 @@
   padding: 15px 0px 25px 0px;
 }
 
-.nav-bar-mobile-logo-container {
+.nav-bar-mobile-container {
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100%;
 }
 

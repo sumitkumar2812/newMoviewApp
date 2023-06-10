@@ -10,12 +10,10 @@ import './index.css'
 class MoviesHome extends Component {
   state = {
     trendingMovieList: [],
-    originalMoviesList: [],
   }
 
   componentDidMount() {
     this.getTrendingMovies()
-    this.getOriginalMovies()
   }
 
   getTrendingMovies = async () => {
@@ -32,38 +30,17 @@ class MoviesHome extends Component {
 
     if (response.ok === true) {
       const fetchedMovies = await response.json()
+      console.log(fetchedMovies)
       const updatedMovies = fetchedMovies.results.map(movie => ({
+        backdropPath: movie.backdrop_path,
         id: movie.id,
+        overview: movie.overview,
+        posterPath: movie.poster_path,
         title: movie.title,
       }))
 
       this.setState({
         trendingMovieList: updatedMovies,
-      })
-    }
-  }
-
-  getOriginalMovies = async () => {
-    const jwtToken = Cookies.get('jwt_token')
-    const apiUrl = 'https://apis.ccbp.in/movies-app/originals'
-    const options = {
-      method: 'GET',
-      headers: {
-        Authorization: `Bearer ${jwtToken}`,
-      },
-    }
-
-    const response = await fetch(apiUrl, options)
-
-    if (response.ok === true) {
-      const fetchedMovies = await response.json()
-      const updatedMovies = fetchedMovies.results.map(movie => ({
-        id: movie.id,
-        title: movie.title,
-      }))
-
-      this.setState({
-        originalMoviesList: updatedMovies,
       })
     }
   }
@@ -75,20 +52,6 @@ class MoviesHome extends Component {
         <h1 className="trending-heading">Trending Now</h1>
         <ul className="movies-list">
           {trendingMovieList.map(movie => (
-            <MovieCard movieData={movie} key={movie.id} />
-          ))}
-        </ul>
-      </div>
-    )
-  }
-
-  renderOriginalMoviesList = () => {
-    const {originalMoviesList} = this.state
-    return (
-      <div>
-        <h1 className="trending-heading">Originals</h1>
-        <ul className="movies-list">
-          {originalMoviesList.map(movie => (
             <MovieCard movieData={movie} key={movie.id} />
           ))}
         </ul>
@@ -113,7 +76,7 @@ class MoviesHome extends Component {
             </button>
           </div>
           {this.renderMoviesList}
-          {this.renderOriginalMoviesList}
+
           <Footer />
         </div>
       </>

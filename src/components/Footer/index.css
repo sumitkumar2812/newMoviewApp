@@ -1,3 +1,9 @@
+.footer-direction {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 .react-icons {
   left: 45%;
   right: 53.75%;
