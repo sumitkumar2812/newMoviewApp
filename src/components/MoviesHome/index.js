@@ -1,24 +1,40 @@
 import {Component} from 'react'
+
 import Cookies from 'js-cookie'
-import MovieCard from '../MovieCard'
-
-import Footer from '../Footer'
-import Header from '../Header'
-
+import Loader from 'react-loader-spinner'
+// import {Link} from 'react-router-dom'
+// import {AiOutlineClose} from 'react-icons/ai'
+import HomePoster from '../HomePoster'
+import Header from '../HeaderPage'
 import './index.css'
+import FailureView from '../FailureView'
+import TrendingNow from '../TrendingNow'
+import Originals from '../Originals'
+import Footer from '../FooterPage'
 
-class MoviesHome extends Component {
+const apiStatusConstants = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  inProgress: 'IN_PROGRESS',
+}
+
+class Home extends Component {
   state = {
-    trendingMovieList: [],
+    initialPoster: {},
+    apiStatus: apiStatusConstants.initial,
   }
 
   componentDidMount() {
-    this.getTrendingMovies()
+    this.getHomePagePoster()
   }
 
-  getTrendingMovies = async () => {
+  getHomePagePoster = async () => {
+    this.setState({
+      apiStatus: apiStatusConstants.inProgress,
+    })
     const jwtToken = Cookies.get('jwt_token')
-    const apiUrl = 'https://apis.ccbp.in/movies-app/trending-movies'
+    const apiUrl = `https://apis.ccbp.in/movies-app/top-rated-movies`
     const options = {
       method: 'GET',
       headers: {
@@ -27,61 +43,92 @@ class MoviesHome extends Component {
     }
 
     const response = await fetch(apiUrl, options)
-
     if (response.ok === true) {
-      const fetchedMovies = await response.json()
-      console.log(fetchedMovies)
-      const updatedMovies = fetchedMovies.results.map(movie => ({
-        backdropPath: movie.backdrop_path,
-        id: movie.id,
-        overview: movie.overview,
-        posterPath: movie.poster_path,
-        title: movie.title,
-      }))
-
+      const data = await response.json()
+      // console.log(data)
+      const fetchedDataLength = data.results.length
+      const randomPoster =
+        data.results[Math.floor(Math.random() * fetchedDataLength)]
+      const updatedData = {
+        id: randomPoster.id,
+        backdropPath: randomPoster.backdrop_path,
+        title: randomPoster.title,
+        overview: randomPoster.overview,
+        posterPath: randomPoster.poster_path,
+      }
+      // console.log(updatedData)
       this.setState({
-        trendingMovieList: updatedMovies,
+        initialPoster: {...updatedData},
+        apiStatus: apiStatusConstants.success,
+      })
+    } else {
+      this.setState({
+        apiStatus: apiStatusConstants.failure,
       })
     }
   }
 
-  renderMoviesList = () => {
-    const {trendingMovieList} = this.state
+  onRetry = () => {
+    this.getHomePagePoster()
+  }
+
+  renderFailureView = () => <FailureView onRetry={this.onRetry} />
+
+  renderLoadingView = () => (
+    <div className="loader-container">
+      <Loader
+        testid="loader"
+        type="TailSpin"
+        height={35}
+        width={380}
+        color=" #D81F26"
+      />
+    </div>
+  )
+
+  renderSuccessView = () => {
+    const {initialPoster} = this.state
     return (
-      <div>
-        <h1 className="trending-heading">Trending Now</h1>
-        <ul className="movies-list">
-          {trendingMovieList.map(movie => (
-            <MovieCard movieData={movie} key={movie.id} />
-          ))}
-        </ul>
-      </div>
+      <>
+        {/* <p className="json">{JSON.stringify(homeVideos)}</p> */}
+        <HomePoster poster={initialPoster} />
+      </>
     )
+  }
+
+  renderHomePoster = () => {
+    const {apiStatus} = this.state
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderSuccessView()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderLoadingView()
+
+      default:
+        return null
+    }
   }
 
   render() {
     return (
-      <>
-        <div className="home-background">
-          <div className="background_image">
-            <Header />
-            <h1 className="main-heading">Super Man</h1>
-            <p className="main-para">
-              Superman is a fictional superhero who first appeared in American
-              comic books published by DC Comics.
-            </p>
-
-            <button className="main-button" type="button">
-              Play
-            </button>
+      <div className="root-container">
+        <Header />
+        <div className="home-sizes-container">{this.renderHomePoster()}</div>
+        <div>
+          <div>
+            <h1 className="trending-now-heading">Trending Now</h1>
+            <TrendingNow />
           </div>
-          {this.renderMoviesList}
-
-          <Footer />
+          <div>
+            <h1 className="originals-heading">Originals</h1>
+            <Originals />
+          </div>
         </div>
-      </>
+        <Footer />
+      </div>
     )
   }
 }
-
-export default MoviesHome
+export default Home

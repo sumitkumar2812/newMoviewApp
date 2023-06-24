@@ -1,20 +1,13 @@
 .not-found-container {
-  position: absolute;
-  left: 0%;
-  right: 0%;
-  top: 0%;
-  bottom: 0%;
-
-  background: linear-gradient(
-      180deg,
-      #4368eb -37.08%,
-      rgba(164, 184, 255, 0) 100%
-    ),
-    url(https://res.cloudinary.com/dzbfzovvx/image/upload/v1684308083/snow-removal-machine-working-high-ski-slope-snowstorm_454047-2149_1_kjdhqv.png);
+  background: url(https://res.cloudinary.com/dzbfzovvx/image/upload/v1684308083/snow-removal-machine-working-high-ski-slope-snowstorm_454047-2149_1_kjdhqv.png);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 }
 
 .not-found-heading {
-  position: absolute;
   left: 26.18%;
   right: 26.18%;
   top: 35.35%;
@@ -28,9 +21,9 @@
   /* identical to box height */
 
   color: #ffffff;
+  text-align: center;
 }
 .not-found-description {
-  position: absolute;
   left: 28.82%;
   right: 28.82%;
   top: 50.68%;
@@ -72,4 +65,10 @@
   .not-found-description {
     font-size: 18px;
   }
+}
+.button-position {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
 }

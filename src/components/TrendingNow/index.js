@@ -1,12 +1,10 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {Link} from 'react-router-dom'
-import './index.css'
+import SlickMovieCard from '../MovieSlider'
 
+import './index.css'
 import FailureView from '../FailureView'
-import Header from '../HeaderPage'
-import Footer from '../FooterPage'
 
 const apiStatusConstants = {
   initial: 'INITIAL',
@@ -15,23 +13,19 @@ const apiStatusConstants = {
   inProgress: 'IN_PROGRESS',
 }
 
-class Popular extends Component {
+class TrendingNow extends Component {
   state = {
-    popularMovies: [],
+    trendingNow: [],
     apiStatus: apiStatusConstants.initial,
   }
 
   componentDidMount() {
-    this.getPopularMovies()
+    this.getTrendingMovies()
   }
 
-  getPopularMovies = async () => {
-    this.setState({
-      apiStatus: apiStatusConstants.inProgress,
-    })
+  getTrendingMovies = async () => {
     const jwtToken = Cookies.get('jwt_token')
-    const apiUrl = 'https://apis.ccbp.in/movies-app/popular-movies'
-
+    const apiUrl = `https://apis.ccbp.in/movies-app/trending-movies`
     const options = {
       method: 'GET',
       headers: {
@@ -44,15 +38,13 @@ class Popular extends Component {
       const data = await response.json()
       // console.log(data)
       const updatedData = data.results.map(each => ({
-        posterPath: each.poster_path,
-        backdropPath: each.backdrop_path,
         id: each.id,
-        overview: each.overview,
+        posterPath: each.poster_path,
         title: each.title,
       }))
       // console.log(updatedData)
       this.setState({
-        popularMovies: updatedData,
+        trendingNow: updatedData,
         apiStatus: apiStatusConstants.success,
       })
     } else {
@@ -63,46 +55,30 @@ class Popular extends Component {
   }
 
   onRetry = () => {
-    this.getPopularMovies()
+    this.getTrendingMovies()
   }
 
   renderFailureView = () => <FailureView onRetry={this.onRetry} />
 
   renderLoadingView = () => (
     <div className="loader-container">
-      <Loader
-        testid="loader"
-        type="TailSpin"
-        height={35}
-        width={380}
-        color=" #D81F26"
-      />
+      <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
     </div>
   )
 
   renderSuccessView = () => {
-    const {popularMovies} = this.state
+    const {trendingNow} = this.state
     return (
       <>
-        <h1 className="explore-movies-here">Explore the Popular Movies Here</h1>
-        <ul className="popular-ul-container">
-          {popularMovies.map(each => (
-            <Link to={`/movies/${each.id}`} key={each.id}>
-              <li className="popular-li-item" key={each.id}>
-                <img
-                  className="popular-poster"
-                  src={each.posterPath}
-                  alt={each.title}
-                />
-              </li>
-            </Link>
-          ))}
-        </ul>
+        {/* <p className="json">{JSON.stringify(trendingNow)}</p> */}
+        {/* <HomeVideos homeVideos={homeVideos} /> */}
+
+        <SlickMovieCard movies={trendingNow} />
       </>
     )
   }
 
-  renderPopularMovies = () => {
+  renderTrendingNow = () => {
     const {apiStatus} = this.state
     switch (apiStatus) {
       case apiStatusConstants.success:
@@ -119,15 +95,8 @@ class Popular extends Component {
 
   render() {
     return (
-      <div className="main-popular-bg-black-container">
-        <Header />
-
-        <div className="popular-result-container">
-          {this.renderPopularMovies()}
-        </div>
-        <Footer />
-      </div>
+      <div className="trending-now-container">{this.renderTrendingNow()}</div>
     )
   }
 }
-export default Popular
+export default TrendingNow

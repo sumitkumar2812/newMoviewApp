@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie'
-import Footer from '../Footer'
-import Header from '../Header'
+import Footer from '../FooterPage'
+import Header from '../HeaderPage'
 import './index.css'
 
 const AccountRoute = props => {
